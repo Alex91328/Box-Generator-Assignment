@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+.BoxArea {
+  background-color:mediumspringgreen;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}

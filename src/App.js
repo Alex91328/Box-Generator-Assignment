@@ -1,24 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import BoxForm from './Components/BoxForm';
+import Box from './Components/Box';
 
 function App() {
+  const [state, setState] = useState([
+    { color: "red", height: 200, width: 200 },
+    { color: "yellow", height: 200, width: 200 },
+    { color: "blue", height: 200, width: 200 },
+    { color: "black", height: 200, width: 200 },
+  ])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BoxForm state={state} setState={setState} />
+      <div className="BoxArea">
+        {state.map((box, i) => (
+          <Box key={i} color={box.color} height={box.height} width={box.width} />
+        ))}
+      </div>
     </div>
   );
 }
